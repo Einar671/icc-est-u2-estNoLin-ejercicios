@@ -1,187 +1,169 @@
-# Estructuras No Lineales – Ejercicios Árboles
+# Algoritmos de Árboles Binarios
 
-Este proyecto contiene la solución a cuatro ejercicios prácticos sobre estructuras de datos tipo árbol binario, como parte del aprendizaje de estructuras no lineales en Java. Cada ejercicio se encuentra organizado en su propia carpeta, siguiendo la convención de paquetes y buenas prácticas.
-
----
-
-## Identificación del Estudiante (Obligatorio)
-
-Antes de comenzar a programar o ejecutar el proyecto, **debes completar tu nombre y correo institucional en el archivo `student.env`** que se encuentra en la raíz del proyecto. Este archivo es necesario para validar tu identidad como autor del trabajo.
-
-### ¿Por qué es obligatorio?
-
-Este proyecto utiliza una verificación automática que valida que has ingresado tu información personal. Si no lo haces:
-
-- Al ejecutar el proyecto (`App.java`) verás este mensaje de error:
-```
-❌ Debes completar STUDENT_NAME y STUDENT_EMAIL en student.env
-```
-- No podrás enviar tu código (`push`) al repositorio si tienes activado el sistema de validación local.
-- Las pruebas automáticas en GitHub Actions también fallarán si no detectan tu nombre y correo.
-
-### ¿Qué debo hacer?
-
-1. Abre el archivo `student.env` que ya está creado en el proyecto.
-2. Rellena tus datos:
-
-```
-STUDENT_NAME=Tu Nombre Completo
-STUDENT_EMAIL=tu.correo@institucion.edu.ec
-```
-
-
-3. **No borres estas líneas ni cambies los nombres de las variables.**
-4. Guarda los cambios y vuelve a ejecutar el programa o hacer push.
-
-> 💡 Este mecanismo asegura la autoría del código y que cada estudiante reciba su evaluación automática de forma personalizada.
+## 📌 Información General
+- **Título:** Implementación de Algoritmos de Árboles Binarios
+- **Asignatura:** Estructura de Datos
+- **Carrera:** Computación
+- **Estudiantes:** [Nombre del estudiante]
+- **Fecha:** 5 de julio del 2025
+- **Profesor:** Ing. Pablo Torres
 
 ---
 
+## 🛠 Descripción
 
+Este proyecto implementa y demuestra diferentes algoritmos fundamentales para el manejo de árboles binarios en **Java**, incluyendo:
 
+- **Inserción en BST (Binary Search Tree)** - Algoritmo de inserción en árbol binario de búsqueda
+- **Inversión de Árbol Binario** - Algoritmo para invertir completamente un árbol binario
+- **Listado por Niveles** - Recorrido por niveles usando BFS (Breadth-First Search)
+- **Cálculo de Profundidad** - Determinación de la altura máxima del árbol
+- **Árbol AVL** - Implementación de árbol auto-balanceado con rotaciones
 
-## Explicación para el estudiante
+El sistema incluye:
+- Clases modelo para representar nodos del árbol
+- Controladores para manejo de diferentes tipos de árboles
+- Métodos de recorrido (in-order, pre-order, post-order)
+- Pruebas unitarias con JUnit para validar la funcionalidad
+- Visualización del árbol en formato texto
+
+---
+
+## 🚀 Ejecución
+
+Para ejecutar el proyecto:
+
+1. Asegúrate de tener Java JDK 11 o superior instalado
+2. Compila el proyecto desde la raíz:
+```bash
+javac -cp ".:lib/*" src/main/App.java
+```
+3. Ejecuta la aplicación principal:
+```bash
+java -cp ".:lib/*:src" main.App
+```
+
+Para ejecutar las pruebas unitarias:
+```bash
+java -cp ".:lib/*:src" org.junit.runner.JUnitCore test.Ejercicio_01_insert.InsertBSTTest
+```
+
+---
+
+## 📁 Estructura del Proyecto
 
 ```
 src/
-│
-├── Materia/
-│
-├── Ejercicio_01_insert/
-├── Ejercicio_02_invert/
-├── Ejercicio_03_listLeves/
-└── Ejercicio_04_depth/
+├── main/
+│   ├── App.java                          # Clase principal
+│   ├── Ejercicio_01_insert/
+│   │   └── InsertBST.java               # Inserción en BST
+│   ├── Ejercicio_02_invert/
+│   │   └── InvertBinaryTree.java        # Inversión de árbol
+│   ├── Ejercicio_03_listLeves/
+│   │   └── ListLevels.java              # Listado por niveles
+│   ├── Ejercicio_04_depth/
+│   │   └── Depth.java                   # Cálculo de profundidad
+│   └── Materia/
+│       ├── Controllers/
+│       │   ├── AVLTree.java             # Árbol AVL auto-balanceado
+│       │   ├── ArbolBinario.java        # Árbol binario básico
+│       │   └── ArbolRecorridos.java     # Métodos de recorrido
+│       └── Models/
+│           └── Node.java                # Clase nodo del árbol
+└── test/
+    └── [Pruebas unitarias para cada ejercicio]
 ```
 
 ---
 
-## Descripción de Ejercicios
+## 🧪 Funcionalidades Implementadas
 
-### Ejercicio 01: Insertar en un Árbol Binario de Búsqueda (BST)
+### 1. Inserción en BST
+- Inserción recursiva manteniendo propiedades del BST
+- Recorrido in-order para verificar ordenamiento
+- Complejidad: O(log n) promedio, O(n) peor caso
 
-Carpeta: `Ejercicio_01_insert`
-Implementa un algoritmo para insertar nodos en un Árbol Binario de Búsqueda.
+### 2. Inversión de Árbol Binario
+- Intercambio recursivo de subárboles izquierdo y derecho
+- Preserva la estructura original del árbol
+- Complejidad: O(n) donde n es el número de nodos
 
- **Input de ejemplo:** `[5, 3, 7, 2, 4, 6, 8]`
- **Output esperado:**
+### 3. Listado por Niveles (BFS)
+- Recorrido nivel por nivel usando cola (Queue)
+- Retorna lista de listas con nodos por nivel
+- Complejidad: O(n) tiempo y espacio
+
+### 4. Cálculo de Profundidad Máxima
+- Determina la altura del árbol recursivamente
+- Considera el camino más largo desde la raíz
+- Complejidad: O(n) tiempo, O(h) espacio (h = altura)
+
+
+---
+
+## 🧪 Ejemplo de Salida por Consola
 
 ```
-    5
-  3   7
- 2 4 6 8
+👤 Estudiante: [Nombre]
+✉️  Correo: [correo@ejemplo.com]
+
+* Nodo a insertar: 10
+├── 10
+│   ├── null
+│   └── null
+Nodo insertado: 10, Balance: 0
+
+* Nodo a insertar: 20
+├── 10
+│   ├── null
+│   └── 20
+...
+
+Inorder traversal: 8, 9, 10, 15, 20, 21, 23, 24, 25, 50
 ```
 
 ---
 
-### Ejercicio 02: Invertir un Árbol Binario
+## 📊 Análisis de Complejidad
 
-📂 Carpeta: `Ejercicio_02_invert`
-Dada la raíz de un árbol binario, el algoritmo devuelve su versión invertida (espejo).
+| Algoritmo | Tiempo Promedio | Tiempo Peor Caso | Espacio |
+|-----------|----------------|------------------|---------|
+| Inserción BST | O(log n) | O(n) | O(h) |
+| Inversión | O(n) | O(n) | O(h) |
+| Listado por Niveles | O(n) | O(n) | O(n) |
+| Profundidad | O(n) | O(n) | O(h) |
 
- **Input de ejemplo:**
 
-```
-    4
-  2   7
-1  3 6  9
-```
-
-**Output esperado:**
-
-```
-    4
-  7   2
-9  6 3  1
-```
+*Donde n = número de nodos, h = altura del árbol*
 
 ---
 
-### Ejercicio 03: Listar Niveles en Listas Enlazadas
+## ✅ Conclusiones
 
-📂 Carpeta: `Ejercicio_03_listLeves`
-Devuelve una lista enlazada con los nodos por nivel. Si hay N niveles, se obtienen N listas.
+La implementación de algoritmos de árboles binarios demuestra la importancia de las estructuras de datos jerárquicas en la computación:
 
- **Input de ejemplo:**
+- **BST** ofrece búsqueda eficiente pero puede degradarse sin balanceo
+- **Árboles AVL** garantizan operaciones logarítmicas mediante auto-balanceo
+- **Recorridos** permiten procesamiento sistemático de datos jerárquicos
+- **Inversión** muestra manipulación estructural de árboles
+- **BFS** proporciona acceso nivel por nivel para análisis jerárquico
 
-```
-    4
-  2   7
-1  3 6  9
-```
-
-**Output esperado:**
-
-```
-4  
-2 → 7  
-1 → 3 → 6 → 9
-```
+Los árboles balanceados como AVL son fundamentales para aplicaciones que requieren garantías de rendimiento, mientras que los BST simples son adecuados para casos donde el balanceo no es crítico.
 
 ---
 
-### Ejercicio 04: Calcular la Profundidad Máxima
+## 🔧 Dependencias
 
-Carpeta: `Ejercicio_04_depth`
-Calcula la profundidad máxima de un árbol binario (la longitud del camino más largo desde la raíz hasta una hoja).
-
-**Input de ejemplo:**
-
-```
-    4
-  2   7
-1  3  
-8
-```
-
-**Output esperado:** `4`
+- Java JDK 11+
+- JUnit 5 para pruebas unitarias
+- No se requieren dependencias externas adicionales
 
 ---
 
-## Indicaciones Generales
+## 📝 Notas Adicionales
 
-* Lee cuidadosamente el enunciado de cada ejercicio.
-* Cada carpeta debe contener:
-
-  * Código fuente Java.
-  * Casos de prueba.
-  * Comentarios claros.
-* Realiza commit y push con el mensaje:
-
-  ```
-  Estructuras No Lineales – Ejercicios Árboles
-  ```
-* En el AVAC, sube la **URL del repositorio** con el código.
-
----
-
-## No se calificará si:
-
-* No hay commit con los ejercicios.
-* No se incluye este README explicativo.
-* Las clases o métodos no siguen los nombres requeridos.
-
----
-
-## Rúbrica de Calificación
-
-| **Criterio**       | **Descripción**                                                                       | **Puntaje** |
-| ------------------ | ------------------------------------------------------------------------------------- | ----------- |
-| **Informe**        | No hay informe                                                                        | 0 pts       |
-|                    | Informe parcial **sin explicación** de cada método                                    | 1 pt        |
-|                    | Informe parcial **con explicación** de cada método                                    | 2 pts       |
-|                    | Informe completo                                                                      | 3 pts       |
-| **Funcionamiento** | No implementado                                                                       | 0 pts       |
-|                    | Implementado parcialmente: <br>• Ejercicio 1 y 4 → 2 pts<br>• Ejercicio 2 y 3 → 4 pts | 2–4 pts     |
-|                    | Código funcional pero **no pasa todas las pruebas**                                   | 6 pts       |
-|                    | Código funcional y **pasa todas las pruebas correctamente**                           | 7 pts       |
-
-
-
-## Contribuir
-
-Para contribuir a este proyecto, por favor crea un fork y envía una solicitud de extracción, o simplemente abre un issue con tus comentarios y sugerencias.
-
-## Autores
-
-- [PABLO TORRES] - Desarrollo inicial
-
+- Todos los algoritmos incluyen validación de entrada
+- Las pruebas unitarias cubren casos base y casos límite
+- La visualización del árbol facilita la comprensión de la estructura
+- El código sigue principios de programación orientada a objetos
